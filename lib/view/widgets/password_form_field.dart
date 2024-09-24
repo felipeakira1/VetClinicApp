@@ -19,7 +19,7 @@ class PasswordFormField extends StatefulWidget {
 }
 
 class _PasswordFormFieldState extends State<PasswordFormField> {
-  bool obscureText = false;
+  bool obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,18 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
             obscureText: obscureText,
             decoration: InputDecoration(
               contentPadding: const EdgeInsets.all(16.0),
-              border: InputBorder.none,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                borderSide: BorderSide(
+                  color: Colors.grey.shade300,
+                ),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                borderSide: BorderSide(
+                  color: Colors.grey.shade300,
+                ),
+              ),
               suffixIcon: IconButton(
                 icon: Icon(widget.suffixIcon),
                 onPressed: () {
