@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tempvet/view/pages/login_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +10,23 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
+
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        colorScheme: ColorScheme.fromSwatch().copyWith(primary: Colors.black, secondary: Colors.yellow),
+        
+      ),
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+        body: Padding(
+          padding: const EdgeInsets.all(32.0),
+          child: LoginPage(emailController: emailController, passwordController: passwordController),
         ),
       ),
     );
   }
 }
+
