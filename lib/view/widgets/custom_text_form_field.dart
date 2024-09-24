@@ -1,0 +1,49 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/material.dart';
+
+class CustomTextFormField extends StatelessWidget {
+  final String title;
+  final String? initialValue;
+  final IconData suffixIcon;
+  final TextEditingController controller;
+  final bool? obscureText;
+
+
+  const CustomTextFormField({
+    super.key,
+    required this.title,
+    this.initialValue,
+    required this.suffixIcon,
+    required this.controller,
+    this.obscureText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(title, style: const TextStyle(fontSize: 16)),
+        const SizedBox(height: 8.0,),
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.grey.shade200,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: TextFormField(
+            controller: controller,
+            obscureText: obscureText ?? false,
+            decoration: InputDecoration(
+              contentPadding: const EdgeInsets.all(16.0),
+              border: InputBorder.none,
+              suffixIcon: Icon(suffixIcon),
+            ),
+            style: const TextStyle(
+              fontSize: 16,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
