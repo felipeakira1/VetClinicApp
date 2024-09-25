@@ -1,5 +1,5 @@
 class Appointment {
-  int id;
+  int? id;
   String date;
   String hour;
   double valor;
@@ -7,11 +7,11 @@ class Appointment {
   int animalId;
   int veterinarioId;
   String motivo;
-  String diagostico;
-  String prescricoes;
+  String? diagostico;
+  String? prescricoes;
 
   Appointment({
-    required this.id,
+    this.id,
     required this.date,
     required this.hour,
     required this.valor,
@@ -19,8 +19,8 @@ class Appointment {
     required this.animalId,
     required this.veterinarioId,
     required this.motivo,
-    required this.diagostico,
-    required this.prescricoes,
+    this.diagostico,
+    this.prescricoes,
   });
 
   factory Appointment.fromJson(Map<String, dynamic> json) {
