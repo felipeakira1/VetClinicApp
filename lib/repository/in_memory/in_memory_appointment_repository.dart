@@ -1,9 +1,10 @@
-import 'package:tempvet/domain/models/Appointment.dart';
 import 'package:tempvet/repository/appointment_repository.dart';
+
+import '../../domain/models/Appointment.dart';
 
 class InMemoryAppointmentRepository implements AppointmentRepository {
   final List<Appointment> _appointments = [
-    Appointment(date: '2024-20-20', hour: '14:00:24', valor: 100.0, gasto: 20.0, animalId: 1, veterinarioId: 1, motivo: 'N motivos'),
+    Appointment(date: '26/09/2024', hour: '15:00', valor: 100.0, spent: 15.0, reason: 'reason', animalId: 1)
   ];
 
   @override
