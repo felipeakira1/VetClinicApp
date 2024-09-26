@@ -1,26 +1,28 @@
+import 'package:tempvet/domain/models/animal.dart';
+
 class Appointment {
   int? id;
   String date;
   String hour;
   double valor;
-  double gasto;
+  double spent;
+  Animal? animal;
+  String reason;
+  String? diagnostic;
+  String? treatment;
   int animalId;
-  int veterinarioId;
-  String motivo;
-  String? diagostico;
-  String? prescricoes;
 
   Appointment({
     this.id,
     required this.date,
     required this.hour,
     required this.valor,
-    required this.gasto,
-    required this.animalId,
-    required this.veterinarioId,
-    required this.motivo,
-    this.diagostico,
-    this.prescricoes,
+    required this.spent,
+    this.animal,
+    required this.reason,
+    this.diagnostic,
+    this.treatment,
+    required this.animalId
   });
 
   factory Appointment.fromJson(Map<String, dynamic> json) {
@@ -29,12 +31,11 @@ class Appointment {
       date: json['date'],
       hour: json['hour'],
       valor: json['valor'],
-      gasto: json['gasto'],
-      animalId: json['animalId'],
-      veterinarioId: json['veterinarioId'],
-      motivo: json['motivo'],
-      diagostico: json['diagostico'],
-      prescricoes: json['prescricoes'],
+      spent: json['spent'],
+      reason: json['reason'],
+      diagnostic: json['diagnostic'],
+      treatment: json['treatment'],
+      animalId: json['animalId']
     );
   }
 
@@ -44,12 +45,10 @@ class Appointment {
       'date': date,
       'hour': hour,
       'valor': valor,
-      'gasto': gasto,
-      'animalId': animalId,
-      'veterinarioId': veterinarioId,
-      'motivo': motivo,
-      'diagostico': diagostico,
-      'prescricoes': prescricoes,
+      'spent': spent,
+      'reason': reason,
+      'diagnostic': diagnostic,
+      'treatment': treatment,
     };
   }
 }
