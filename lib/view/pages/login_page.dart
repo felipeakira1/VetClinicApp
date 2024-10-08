@@ -44,9 +44,9 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 32),
               GreenButton(
                   onPressed: () {
-                  Navigator.pushReplacement(
+                  Navigator.pushReplacementNamed(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
+                    '/home',
                   );
                 }, 
                 title: 'Entrar'
