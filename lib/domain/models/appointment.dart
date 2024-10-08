@@ -1,4 +1,5 @@
 import 'package:tempvet/domain/models/animal.dart';
+import 'package:tempvet/domain/models/guardian.dart';
 
 class Appointment {
   int? id;
@@ -7,6 +8,7 @@ class Appointment {
   double valor;
   double spent;
   Animal? animal;
+  Guardian? guardian;
   String reason;
   String? diagnostic;
   String? treatment;

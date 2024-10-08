@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tempvet/domain/models/Appointment.dart';
+import 'package:tempvet/domain/models/appointment.dart';
 import 'package:tempvet/view/widgets/green_button.dart';
 
 class AppointmentCard extends StatelessWidget {
@@ -28,7 +28,7 @@ class AppointmentCard extends StatelessWidget {
               children: [
                 Text('CONSULTA ${appointment.hour}', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold), overflow: TextOverflow.ellipsis,),
                 const SizedBox(height: 4),
-                Text('Tutor: ${appointment.hour}', overflow: TextOverflow.ellipsis),
+                Text('Tutor: ${appointment.guardian!.name}', overflow: TextOverflow.ellipsis),
                 const SizedBox(height: 4),
                 if (appointment.animal != null) 
                   Text('Pet: ${appointment.animal!.name}'),

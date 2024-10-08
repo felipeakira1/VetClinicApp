@@ -1,6 +1,6 @@
 import 'package:tempvet/repository/appointment_repository.dart';
 
-import '../../domain/models/Appointment.dart';
+import '../../domain/models/appointment.dart';
 
 class InMemoryAppointmentRepository implements AppointmentRepository {
   final List<Appointment> _appointments = [
