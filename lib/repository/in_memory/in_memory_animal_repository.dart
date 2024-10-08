@@ -3,7 +3,7 @@ import 'package:tempvet/repository/animal_repository.dart';
 
 class InMemoryAnimalRepository implements AnimalRepository {
   final List<Animal> _animals = [
-    Animal(id: 1, name: 'Ares', species: 'Cat', breed: 'Normal', age: 4, gender: 'Masculino', ownerId: 1),
+    Animal(id: 1, name: 'Ares', species: 'Cat', breed: 'Normal', age: 4, gender: 'Masculino', guardianId: 1),
   ];
 
   @override
