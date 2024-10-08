@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tempvet/view/bloc/appointments_bloc.dart';
 import 'package:tempvet/view/widgets/appointment_card.dart';
 import 'package:tempvet/view/widgets/custom_app_bar.dart';
+import 'package:tempvet/view/widgets/custom_drawer.dart';
 import 'package:tempvet/view/widgets/green_button.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const CustomDrawer(),
       appBar: const CustomAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(32),
