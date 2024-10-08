@@ -9,7 +9,7 @@ class Animal {
   String breed;
   int age;
   String gender;
-  int ownerId;
+  int guardianId;
 
   Animal({
     this.id,
@@ -18,7 +18,7 @@ class Animal {
     required this.breed,
     required this.age,
     required this.gender,
-    required this.ownerId,
+    required this.guardianId,
   });
 
   Animal copyWith({
@@ -38,7 +38,7 @@ class Animal {
       breed: breed ?? this.breed,
       age: age ?? this.age,
       gender: gender ?? this.gender,
-      ownerId: ownerId ?? this.ownerId,
+      guardianId: ownerId ?? guardianId,
     );
   }
 
@@ -50,7 +50,7 @@ class Animal {
       'breed': breed,
       'age': age,
       'gender': gender,
-      'ownerId': ownerId,
+      'ownerId': guardianId,
     };
   }
 
@@ -62,7 +62,7 @@ class Animal {
       breed: map['breed'] as String,
       age: map['age'] as int,
       gender: map['gender'] as String,
-      ownerId: map['ownerId'] as int,
+      guardianId: map['ownerId'] as int,
     );
   }
 
@@ -72,6 +72,6 @@ class Animal {
 
   @override
   String toString() {
-    return 'Animal(id: $id, name: $name, species: $species, breed: $breed, age: $age, gender: $gender, ownerId: $ownerId)';
+    return 'Animal(id: $id, name: $name, species: $species, breed: $breed, age: $age, gender: $gender, ownerId: $guardianId)';
   }
 }
