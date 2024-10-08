@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 import 'package:tempvet/domain/models/appointment.dart';
+import 'package:tempvet/domain/models/guardian.dart';
 
 class Animal {
   int? id;
@@ -10,6 +11,7 @@ class Animal {
   int age;
   String gender;
   int guardianId;
+  Guardian? guardian;
 
   Animal({
     this.id,
