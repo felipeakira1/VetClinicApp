@@ -1,5 +1,6 @@
 import 'package:tempvet/domain/models/animal.dart';
 import 'package:tempvet/domain/models/guardian.dart';
+import 'package:tempvet/domain/models/veterinarian.dart';
 
 class Appointment {
   int? id;
@@ -7,12 +8,15 @@ class Appointment {
   String hour;
   double valor;
   double spent;
-  Animal? animal;
-  Guardian? guardian;
   String reason;
   String? diagnostic;
   String? treatment;
   int animalId;
+  int veterinarianId;
+  
+  Veterinarian? veterinarian;
+  Animal? animal;
+  Guardian? guardian;
 
   Appointment({
     this.id,
@@ -24,7 +28,8 @@ class Appointment {
     required this.reason,
     this.diagnostic,
     this.treatment,
-    required this.animalId
+    required this.animalId,
+    required this.veterinarianId,
   });
 
   factory Appointment.fromJson(Map<String, dynamic> json) {
@@ -37,7 +42,8 @@ class Appointment {
       reason: json['reason'],
       diagnostic: json['diagnostic'],
       treatment: json['treatment'],
-      animalId: json['animalId']
+      animalId: json['animalId'],
+      veterinarianId: json['veterinarianId'],
     );
   }
 
@@ -51,6 +57,8 @@ class Appointment {
       'reason': reason,
       'diagnostic': diagnostic,
       'treatment': treatment,
+      'animalId': animalId,
+      'veterinarianId': veterinarianId,
     };
   }
 }

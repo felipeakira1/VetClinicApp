@@ -28,6 +28,8 @@ class AppointmentCard extends StatelessWidget {
               children: [
                 Text('CONSULTA ${appointment.hour}', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold), overflow: TextOverflow.ellipsis,),
                 const SizedBox(height: 4),
+                Text('Veterinario: ${appointment.veterinarian!.name}', overflow: TextOverflow.ellipsis),
+                const SizedBox(height: 4),
                 Text('Tutor: ${appointment.guardian!.name}', overflow: TextOverflow.ellipsis),
                 const SizedBox(height: 4),
                 if (appointment.animal != null) 
