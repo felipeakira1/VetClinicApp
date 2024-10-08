@@ -8,6 +8,8 @@ import 'package:tempvet/repository/in_memory/in_memory_appointment_repository.da
 import 'package:tempvet/repository/in_memory/in_memory_guardian_repository.dart';
 import 'package:tempvet/repository/in_memory/in_memory_veterinarian_repository.dart';
 import 'package:tempvet/repository/veterinarian_repository.dart';
+import 'package:tempvet/routes.dart';
+import 'package:tempvet/view/bloc/animals_bloc.dart';
 import 'package:tempvet/view/bloc/appointments_bloc.dart';
 import 'package:tempvet/view/pages/login_page.dart';
 
@@ -21,8 +23,11 @@ class MainApp extends StatelessWidget {
     AnimalRepository animalRepository = InMemoryAnimalRepository();
     GuardianRepository guardianRepository = InMemoryGuardianRepository();
 
-    return BlocProvider(
-      create: (context) => AppointmentsBloc(appointmentRepository, veterinarianRepository, animalRepository, guardianRepository),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => AppointmentsBloc(appointmentRepository, veterinarianRepository, animalRepository, guardianRepository),),
+        BlocProvider(create: (context) => AnimalsBloc(animalRepository, guardianRepository),),
+      ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
@@ -30,7 +35,7 @@ class MainApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSwatch()
                 .copyWith(primary: Colors.black, secondary: Colors.yellow),
           ),
-          home: LoginPage()),
+          routes: routes),
     );
   }
 }
