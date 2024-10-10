@@ -5,4 +5,9 @@ class CustomTextStyles {
     fontSize: 24,
     fontWeight: FontWeight.bold,
   );
+
+  static const TextStyle subtitle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+  );
 }
