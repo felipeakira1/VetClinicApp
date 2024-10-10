@@ -68,7 +68,9 @@ class _AnimalsPageState extends State<AnimalsPage> {
           ),
           Align(
               alignment: Alignment.bottomCenter,
-              child: GreenButton(onPressed: () {}, title: 'Adicionar animal',),
+              child: GreenButton(onPressed: () {
+                Navigator.pushNamed(context, '/add-animal');
+              }, title: 'Adicionar animal',),
             )
           ]
         ),
