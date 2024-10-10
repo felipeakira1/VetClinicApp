@@ -59,8 +59,7 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.exit_to_app, color: Colors.red),
             title: const Text('Sair'),
             onTap: () {
-              Navigator.pop(context);
-              // Ação de logout aqui
+              Navigator.pushNamedAndRemoveUntil(context, "/", (route) => false);
             },
           ),
         ],
