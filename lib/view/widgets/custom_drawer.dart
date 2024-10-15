@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tempvet/view/bloc/authentication_bloc.dart' as auth;
 import 'package:tempvet/view/bloc/login_bloc.dart' as login;
 import 'package:tempvet/view/pages/animals_page.dart';
+import 'package:tempvet/view/pages/guardians_page.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -56,7 +57,7 @@ class CustomDrawer extends StatelessWidget {
             leading: Icon(Icons.person, color: Colors.green.shade900),
             title: const Text('Tutores'),
             onTap: () {
-              Navigator.pushReplacementNamed(context, '/appointments');
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const GuardiansPage()));
             },
           ),
           ListTile(
