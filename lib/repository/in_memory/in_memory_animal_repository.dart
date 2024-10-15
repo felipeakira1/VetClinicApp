@@ -4,12 +4,6 @@ import 'package:tempvet/repository/animal_repository.dart';
 class InMemoryAnimalRepository implements AnimalRepository {
   final List<Animal> _animals = [
     Animal(id: 1, name: 'Ares', species: 'Cat', breed: 'Normal', age: 4, gender: 'Masculino', guardianId: 1),
-    Animal(id: 1, name: 'Ares', species: 'Cat', breed: 'Normal', age: 4, gender: 'Masculino', guardianId: 1),
-    Animal(id: 1, name: 'Ares', species: 'Cat', breed: 'Normal', age: 4, gender: 'Masculino', guardianId: 1),
-    Animal(id: 1, name: 'Ares', species: 'Cat', breed: 'Normal', age: 4, gender: 'Masculino', guardianId: 1),
-    Animal(id: 1, name: 'Ares', species: 'Cat', breed: 'Normal', age: 4, gender: 'Masculino', guardianId: 1),
-    Animal(id: 1, name: 'Ares', species: 'Cat', breed: 'Normal', age: 4, gender: 'Masculino', guardianId: 1),
-    Animal(id: 1, name: 'Ares', species: 'Cat', breed: 'Normal', age: 4, gender: 'Masculino', guardianId: 1),
   ];
 
   @override
@@ -25,5 +19,10 @@ class InMemoryAnimalRepository implements AnimalRepository {
   @override
   Future<Animal> fetchAnimalById(int id) async {
     return Future.value(_animals.firstWhere((appointmnet) => appointmnet.id == id));
+  }
+
+  @override
+  Future<List<Animal>> fetchAnimalsByGuardianId(int guardianId) async {
+    return Future.value(_animals.where((animal) => animal.guardianId == guardianId).toList());
   }
 }
