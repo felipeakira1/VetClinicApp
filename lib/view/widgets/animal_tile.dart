@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tempvet/domain/models/animal.dart';
 import 'package:tempvet/view/widgets/custom_icon_button.dart';
-import 'package:tempvet/view/widgets/green_button.dart';
 
 class AnimalTile extends StatelessWidget {
   final Animal animal;
@@ -28,7 +27,6 @@ class AnimalTile extends StatelessWidget {
                 children: [
                   Text(animal.name, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
                   Text('Tutor(a): ${animal.guardian!.name}'),
-                  Text(animal.age.toString()),
                   const SizedBox(height: 8,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
