@@ -11,7 +11,7 @@ import 'package:tempvet/repository/veterinarian_repository.dart';
 import 'package:tempvet/routes.dart';
 import 'package:tempvet/view/bloc/animals_bloc.dart';
 import 'package:tempvet/view/bloc/appointments_bloc.dart';
-import 'package:tempvet/view/pages/login_page.dart';
+import 'package:tempvet/view/bloc/guardians_bloc.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -26,6 +26,7 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AppointmentsBloc(appointmentRepository, veterinarianRepository, animalRepository, guardianRepository),),
+        BlocProvider(create: (context) => GuardiansBloc(animalRepository, guardianRepository),),
         BlocProvider(create: (context) => AnimalsBloc(animalRepository, guardianRepository),),
       ],
       child: MaterialApp(
