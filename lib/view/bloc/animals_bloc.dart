@@ -7,6 +7,12 @@ abstract class AnimalsEvents {}
 
 class LoadAnimals extends AnimalsEvents {}
 
+class AddAnimal extends AnimalsEvents {
+  final Animal animal;
+
+  AddAnimal({required this.animal});
+}
+
 abstract class AnimalsStates {}
 
 class AnimalsLoading extends AnimalsStates {}
@@ -22,6 +28,8 @@ class AnimalsError extends AnimalsStates {
 
   AnimalsError({required this.message});
 }
+
+class AnimalAdded extends AnimalsStates {}
 
 class AnimalsBloc extends Bloc<AnimalsEvents, AnimalsStates> {
   final AnimalRepository _animalRepository;
@@ -40,5 +48,15 @@ class AnimalsBloc extends Bloc<AnimalsEvents, AnimalsStates> {
         emit(AnimalsError(message: e.toString()));
       }
     });
+    on<AddAnimal>((event, emit) async{
+      emit(AnimalsLoading());
+      try {
+        await _animalRepository.createAnimal(event.animal);
+        emit(AnimalAdded());
+      } catch(e) {
+        emit(AnimalsError(message: e.toString()));
+      }
+    });
   }
+
 }
