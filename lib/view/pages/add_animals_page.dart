@@ -175,7 +175,8 @@ class _AddAnimalsPageState extends State<AddAnimalsPage> {
                         actions: [
                           GreenButton(onPressed: () {
                             Navigator.pop(context);
-                            Navigator.pushNamed(context, '/animals');
+                            Navigator.pop(context);
+                            context.read<AnimalsBloc>().add(LoadAnimals());
                           }, title: 'OK')
                         ],
                       );

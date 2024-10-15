@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tempvet/view/bloc/authentication_bloc.dart' as auth;
+import 'package:tempvet/view/bloc/login_bloc.dart' as login;
+import 'package:tempvet/view/pages/animals_page.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -45,7 +49,7 @@ class CustomDrawer extends StatelessWidget {
             leading: Icon(Icons.pets, color: Colors.green.shade900),
             title: const Text('Animais'),
             onTap: () {
-              Navigator.pushNamed(context, '/animals');
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AnimalsPage()));
             },
           ),
           ListTile(
@@ -59,7 +63,8 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.exit_to_app, color: Colors.red),
             title: const Text('Sair'),
             onTap: () {
-              Navigator.pushNamedAndRemoveUntil(context, "/", (route) => false);
+              context.read<login.LoginBloc>().add(login.LoggedOut());
+              context.read<auth.AuthenticationBloc>().add(auth.LoggedOut());
             },
           ),
         ],
