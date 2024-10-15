@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tempvet/view/bloc/animals_bloc.dart';
 import 'package:tempvet/view/bloc/guardians_bloc.dart';
+import 'package:tempvet/view/pages/add_guardian_page.dart';
 import 'package:tempvet/view/shared/text_styles.dart';
-import 'package:tempvet/view/widgets/animal_tile.dart';
 import 'package:tempvet/view/widgets/custom_app_bar.dart';
 import 'package:tempvet/view/widgets/custom_text_form_field.dart';
 import 'package:tempvet/view/widgets/green_button.dart';
@@ -71,7 +71,7 @@ class _GuardiansPageState extends State<GuardiansPage> {
           Align(
               alignment: Alignment.bottomCenter,
               child: GreenButton(onPressed: () {
-                Navigator.pushNamed(context, '/add-guardian');
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AddGuardiansPage()));
               }, title: 'Adicionar tutor',),
             )
           ]

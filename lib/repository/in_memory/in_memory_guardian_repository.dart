@@ -5,7 +5,7 @@ import 'package:tempvet/repository/guardian_repository.dart';
 
 class InMemoryGuardianRepository implements GuardianRepository {
   final List<Guardian> _guardians = [
-    Guardian(id: 1, name: "Felipe Akira Nozaki", address: "Rua Estudante 578", cpf: "405.100.378-79"),
+    Guardian(id: 1, name: "Felipe Akira Nozaki", email: 'felipe@gmail.com', address: "Rua Estudante 578", cpf: "405.100.378-79"),
   ];
 
   @override
