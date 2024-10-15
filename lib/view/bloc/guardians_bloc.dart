@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tempvet/domain/models/animal.dart';
 import 'package:tempvet/domain/models/guardian.dart';
 import 'package:tempvet/repository/animal_repository.dart';
 import 'package:tempvet/repository/guardian_repository.dart';
@@ -7,6 +6,12 @@ import 'package:tempvet/repository/guardian_repository.dart';
 abstract class GuardiansEvents {}
 
 class LoadGuardians extends GuardiansEvents {}
+
+class AddGuardian extends GuardiansEvents {
+  final Guardian guardian;
+
+  AddGuardian({required this.guardian});
+}
 
 abstract class GuardiansStates {}
 
@@ -17,6 +22,8 @@ class GuardiansLoaded extends GuardiansStates {
 
   GuardiansLoaded({required this.guardians});
 }
+
+class GuardianAdded extends GuardiansStates {}
 
 class GuardiansError extends GuardiansStates {
   final String message;
@@ -34,9 +41,20 @@ class GuardiansBloc extends Bloc<GuardiansEvents, GuardiansStates> {
       try {
         final List<Guardian> guardians = await _guardianRepository.retrieveAllGuardians();
         for(Guardian guardian in guardians) {
-          guardian.animais = await _animalRepository.fetchAnimalsByGuardianId(guardian.id!);
+          if(guardian.id != null) {
+            guardian.animais = await _animalRepository.fetchAnimalsByGuardianId(guardian.id!);
+          }
         }
         emit(GuardiansLoaded(guardians: guardians));
+      } catch(e) {
+        emit(GuardiansError(message: e.toString()));
+      }
+    });
+    on<AddGuardian>((event, emit) async {
+      emit(GuardianLoading());
+      try {
+        await _guardianRepository.createGuardian(event.guardian);
+        emit(GuardianAdded());
       } catch(e) {
         emit(GuardiansError(message: e.toString()));
       }
