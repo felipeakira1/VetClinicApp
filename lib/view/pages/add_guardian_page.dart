@@ -46,7 +46,7 @@ class _AddGuardiansPageState extends State<AddGuardiansPage> {
           key: _formKey,
           child: Column(
             children: [
-              const Text('Adicionar animal', style: CustomTextStyles.title),
+              const Text('Adicionar tutor', style: CustomTextStyles.title),
               const SizedBox(height: 16,),
               CustomTextFormField(
                 title: 'Nome', 
@@ -115,7 +115,7 @@ class _AddGuardiansPageState extends State<AddGuardiansPage> {
                     _errorText = 'Este campo é obrigatório';
                   });
                 }
-              }, title: 'Adicionar animal'),
+              }, title: 'Adicionar tutor'),
             ],
           ),
         ),
